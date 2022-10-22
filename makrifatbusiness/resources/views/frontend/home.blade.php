@@ -7,7 +7,7 @@
         <div class="spinner-border position-relative text-primary" style="width: 6rem; height: 6rem;" role="status"></div>
         <i class="fa fa-laptop-code fa-2x text-primary position-absolute top-50 start-50 translate-middle"></i>
     </div>
-    <!-- Spinner End -->
+    <!-- Spinner End --> 
 
     @include('frontend/layouts.navbar')
 
@@ -41,7 +41,7 @@
                     <div class="carousel-caption">
                         <div class="p-3" style="max-width: 900px;">
                             <h4 class="text-white text-uppercase mb-4 animated zoomIn">Yayasan Pondok Pesantren</h4>
-                            <h1 class="display-1 text-white mb-0 animated zoomIn">Entrepreneurship Makrifat Digital</h1>
+                            <h1 class="display-1 text-white mb-0 animated zoomIn">Entrepreneur Makrifat Digital</h1>
                         </div>
                     </div>
                 </div>
@@ -590,6 +590,9 @@
 
     
     @include('frontend/layouts.footer')
+
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-lg btn-primary btn-lg-square rounded-circle back-to-top"><i class="bi bi-arrow-up"></i></a>
 
     <!-- JavaScript Libraries -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>

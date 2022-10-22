@@ -32,3 +32,11 @@ Route::group(['namespace' => 'Backend'], function()
     Route::resource('artikel','ArtikelController');
     Route::get('/artikel/{id}/detail','ArtikelController@detail');
 });
+
+Route::group(['namespace' => 'Frontend'], function()
+{
+    // Route::resource('dashboard','DashboardController');
+    Route::resource('/frontend/artikel','ArtikelController');
+    Route::resource('/frontend/detail-artikel','DetailArtikelController');
+    // Route::get('frontend/artikel/{id}/detail','ArtikelController@detail');
+});

@@ -1,28 +1,3 @@
-<!-- Topbar Start -->
-<div class="container-fluid bg-light px-0 wow fadeIn" data-wow-delay="0.1s">
-    <div class="row gx-0 align-items-center d-none d-lg-flex">
-        <div class="col-lg-6 px-5 text-start">
-            <ol class="breadcrumb mb-0">
-                <li class="breadcrumb-item"><a class="small text-secondary" href="#">Home</a></li>
-                <li class="breadcrumb-item"><a class="small text-secondary" href="#">Career</a></li>
-                <li class="breadcrumb-item"><a class="small text-secondary" href="#">Terms</a></li>
-                <li class="breadcrumb-item"><a class="small text-secondary" href="#">Privacy</a></li>
-            </ol>
-        </div>
-        <div class="col-lg-6 px-5 text-end">
-            <small>Follow us:</small>
-            <div class="h-100 d-inline-flex align-items-center">
-                <a class="btn-square text-primary border-end rounded-0" href=""><i class="fab fa-facebook-f"></i></a>
-                <a class="btn-square text-primary border-end rounded-0" href=""><i class="fab fa-twitter"></i></a>
-                <a class="btn-square text-primary border-end rounded-0" href=""><i class="fab fa-linkedin-in"></i></a>
-                <a class="btn-square text-primary pe-0" href=""><i class="fab fa-instagram"></i></a>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- Topbar End -->
-
-
 <!-- Brand & Contact Start -->
 <div class="container-fluid py-4 px-5 wow fadeIn" data-wow-delay="0.1s">
     <div class="row align-items-center top-bar">
@@ -80,7 +55,6 @@
 </div>
 <!-- Brand & Contact End -->
 
-
 <!-- Navbar Start -->
 <nav class="navbar navbar-expand-lg bg-primary navbar-dark sticky-top py-lg-0 px-lg-5 wow fadeIn" data-wow-delay="0.1s">
     <a href="#" class="navbar-brand ms-3 d-lg-none">MENU</a>
@@ -103,9 +77,9 @@
             </div>
             <a href="contact.html" class="nav-item nav-link">Kontak Kami</a>
         </div>
-        @if (Route::has('login'))
+        {{-- @if (Route::has('login'))
         <a href="{{ route('login') }}" class="btn btn-sm btn-light rounded-pill py-2 px-4 d-none d-lg-block">{{ __('Login') }}</a>
-        @endif
+        @endif --}}
     </div>
 </nav>
 <!-- Navbar End -->
