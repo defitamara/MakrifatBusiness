@@ -35,7 +35,10 @@ Route::group(['namespace' => 'Backend'], function()
 
 Route::group(['namespace' => 'Frontend'], function()
 {
+
     // Route::resource('dashboard','DashboardController');
+    Route::resource('/user', 'DataUserAdminController');
+    Route::get('/user/{id}/detail','DataUserAdminController@detail');
     Route::resource('/frontend/artikel','ArtikelController');
     Route::resource('/frontend/detail-artikel','DetailArtikelController');
     // Route::get('frontend/artikel/{id}/detail','ArtikelController@detail');
