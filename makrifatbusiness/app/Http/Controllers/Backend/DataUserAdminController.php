@@ -13,8 +13,15 @@ use App\Models\Role;
 use App\Models\User;
 use Barryvdh\DomPDF\Facade as PDF;
 
+use Illuminate\Support\Facades\Auth;
+
 class DataUserAdminController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function index()
     {
         $data = User::join('admin', 'admin.id', '=', 'users.id')

@@ -16,6 +16,11 @@ class DashboardController extends Controller
 
     public function index()
     {
+        $artikel = Artikel::join('kategori_artikel', 'kategori_artikel.id_ktg', '=', 'artikel.id_ktg')
+            ->orderBy('id_artikel','asc')
+            ->get();
+        
+
         return view('backend.dashboard');
     }
 }

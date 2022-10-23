@@ -9,8 +9,16 @@ use App\Models\TentangKami;
 use Illuminate\Support\Carbon; 
 use File; 
 
+use Illuminate\Support\Facades\Auth;
+use App\Models\User;
+
 class TentangKamiController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+    
     public function index()
     {
         $tk = TentangKami::all();

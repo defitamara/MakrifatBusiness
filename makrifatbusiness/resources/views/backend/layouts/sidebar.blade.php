@@ -52,7 +52,7 @@
                   ><span class="hide-menu">Tentang Kami</span></a
                 >
               </li>
-              <li class="sidebar-item">
+              {{-- <li class="sidebar-item">
                 <a
                   class="sidebar-link waves-effect waves-dark sidebar-link"
                   href="/galeri"
@@ -60,7 +60,7 @@
                   ><i class="mdi mdi-multiplication-box"></i
                   ><span class="hide-menu">Gallery</span></a
                 >
-              </li>
+              </li> --}}
               
             </ul>
           </nav>

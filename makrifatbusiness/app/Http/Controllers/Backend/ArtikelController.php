@@ -13,8 +13,16 @@ use PDF;
 // use Illuminate\Support\Facades\Crypt;
 // use Barryvdh\DomPDF\Facades as PDF;
 
+use Illuminate\Support\Facades\Auth;
+use App\Models\User;
+
 class ArtikelController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+    
     public function index()
     {
         // $artikel = Artikel::all();
