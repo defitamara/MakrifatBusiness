@@ -17,12 +17,13 @@ use Illuminate\Support\Facades\Auth;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    // return view('welcome');
+    return view('frontend.home');
 });
 
 
 Auth::routes();
-// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('dashboard', [App\Http\Controllers\HomeController::class, 'dashboard'])->name('dashboard')->middleware('is_admin');
 
 Route::group(['namespace' => 'Backend'], function()
@@ -30,4 +31,12 @@ Route::group(['namespace' => 'Backend'], function()
     // Route::resource('dashboard','DashboardController');
     Route::resource('artikel','ArtikelController');
     Route::get('/artikel/{id}/detail','ArtikelController@detail');
+});
+
+Route::group(['namespace' => 'Frontend'], function()
+{
+    // Route::resource('dashboard','DashboardController');
+    Route::resource('/frontend/artikel','ArtikelController');
+    Route::resource('/frontend/detail-artikel','DetailArtikelController');
+    // Route::get('frontend/artikel/{id}/detail','ArtikelController@detail');
 });

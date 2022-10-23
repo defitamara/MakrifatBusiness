@@ -34,11 +34,11 @@ class HomeController extends Controller
 
         if ($role == 1) {
             return redirect()->route('dashboard');
-        }
-        elseif ($role  == 2) {
-            return redirect()->route('dbadmin');
+        // }elseif ($role  == 2) {
+        //     return redirect()->route('dbadmin');
         }else{
-            return view('home');
+            // return view('home');
+            return view('frontend.home');
         }
     }
 
@@ -52,9 +52,11 @@ class HomeController extends Controller
 
         if ($role == 1) {
             return view('backend.dashboard');
-        }
-        elseif ($role  == 2) {
-            return redirect()->route('dbadmin');
+        // }elseif ($role  == 2) {
+        //     return redirect()->route('dbadmin');
+        }else{
+            // return view('home');
+            return view('frontend.home');
         }
     }
 }

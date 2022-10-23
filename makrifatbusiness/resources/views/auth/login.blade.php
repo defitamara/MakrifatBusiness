@@ -8,7 +8,7 @@
 					@csrf
 					<span class="login100-form-title p-b-25">
 						{{-- <i class="zmdi zmdi-font"></i> --}}
-						<img src="{{ asset('tmp-login/logo/logo-mb.png') }}" alt="logo" width="120px">
+						<img src="{{ asset('frontend/logo/logo-ponpes.png') }}" alt="logo" width="120px">
 					</span>
 					<span class="login100-form-title p-b-15">
 						Login
