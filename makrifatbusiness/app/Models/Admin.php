@@ -12,11 +12,11 @@ class Admin extends Model
     protected $table = 'admin';
     protected $primaryKey = 'id_admin';
     protected $fillable = [
-         'id_admin', 'name', 'foto', 'jenis_kelamin', 'id',
+         '', 'name', 'foto', 'jenis_kelamin', 'id',
     ];
 
-    public function user(){
-    	return $this->hasMany(User::class);
-    }
+    // public function user(){
+    // 	return $this->hasMany(User::class);
+    // }
 
 }

@@ -29,7 +29,14 @@ Route::get('dashboard', [App\Http\Controllers\HomeController::class, 'dashboard'
 Route::group(['namespace' => 'Backend'], function()
 {
     // Route::resource('dashboard','DashboardController');
-    Route::resource('/user', 'DataUserAdminController');
+
+    // CRUD Data User Admin
+    Route::resource('/data_admin', 'DataUserAdminController');
+    Route::POST('/data_admin/store','DataUserAdminController@store')->name('data_user.store');
+    Route::match(['get','post'], '/data_admin/edit/{id}','DataUserAdminController@edit');
+    Route::GET('/data_admin/destroy/{id}','DataUserAdminController@destroy');
+    Route::match(['get','post'], '/data_admin/ubahpw/{id}','DataUserAdminController@ubahpw')->name('data_admin.ubahpw');
+    Route::PUT('/data_admin/ubahpw/{id}/simpan','DataUserAdminController@ubahpassword')->name('data_admin.ubahpassword');
 
     // CRUD Data Artikel
     Route::resource('data_artikel','ArtikelController');

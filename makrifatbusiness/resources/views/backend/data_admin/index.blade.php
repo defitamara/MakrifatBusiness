@@ -94,7 +94,7 @@
                 <div class="card-body">
                   {{-- <h5 class="card-title">Basic Datatable</h5> --}}
 
-                  <a href="{{ route('user.create') }}" class="card-title">
+                  <a href="{{ route('data_admin.create') }}" class="card-title">
                     <button type="button" class="btn btn-primary">
                       Tambah Data +
                     </button>
@@ -119,7 +119,7 @@
                           <th>Foto</th>
                           <th>Email</th>
                           <th>Jenis Kelamin</th>
-                          <th>Password</th>
+                          {{-- <th>Password</th> --}}
                           <th>Action</th>
                         </tr>
                       </thead>
@@ -133,18 +133,23 @@
                           <td><img src="/data/data_admin/{{ $item->foto }}" width="100"></td>
                           <td>{{ $item->email }}</td>
                           <td>{{ $item->jenis_kelamin }}</td>
-                          <td>{{ $item->password }}</td>
+                          {{-- <td>{{ $item->password }}</td> --}}
                           <td>
-                            <a href="{{ route('user.edit',$item->id_admin) }}" >
+                            <a href="{{ route('data_admin.edit',$item->id_admin) }}" >
                               <button type="button" class="btn btn-cyan btn-sm text-white">
                               <span class="fas fa-pencil-alt"></span>
                             </button></a>
+
+                            <a href="{{ route('data_admin.ubahpw',$item->id) }}" >
+                              <button type="button" class="btn btn-warning btn-sm text-white">
+                              <span class="fas fa-key"></i></span>
+                            </button></a>
                           
-                          <form action="{{ route('user.destroy',$item->id)}}" method="POST">
+                          <form action="{{ route('data_admin.destroy',$item->id)}}" method="POST">
                             @csrf
                                 @method('DELETE')
                                 <button type="submit" class="btn btn-danger btn-sm text-white" 
-                                onclick="return confirm('Apakah Anda yakin ingin menghapus user {{ $item->judul }} ini?')">
+                                onclick="return confirm('Apakah Anda yakin ingin menghapus user admin {{ $item->judul }} ini?')">
                                 <span class="far fa-trash-alt"></span> 
                                 </button>
                           </form>
@@ -156,8 +161,10 @@
                         <tr>
                           <th>No</th>
                           <th>Nama</th>
+                          <th>Foto</th>
                           <th>Email</th>
-                          <th>Password</th>
+                          <th>Jenis Kelamin</th>
+                          {{-- <th>Password</th> --}}
                           <th>Action</th>
                         </tr>
                       </tfoot>

@@ -11,7 +11,6 @@ use Illuminate\Support\Facades\Validator as FacadesValidator;
 use App\Models\Admin;
 use App\Models\Role;
 use App\Models\User;
-use Barryvdh\DomPDF\Facade as PDF;
 
 use Illuminate\Support\Facades\Auth;
 
@@ -27,110 +26,144 @@ class DataUserAdminController extends Controller
         $data = User::join('admin', 'admin.id', '=', 'users.id')
                    ->orderBy('id_admin','asc')
                    ->get();
-        return view('backend.user.index', compact('data'));
+        return view('backend.data_admin.index', compact('data'));
     }
-    // public function index()
-    // {
-    //     $data = User:: where('is_admin','=',1)
-    //         ->get();
-
-    //     return view('backend.user.index',compact('data'));
-    // }
 
     public function cetak_pdf()
     {
         $data_admin = User:: where('is_admin','=',1)
         ->get();
     	$pdf = PDF::loadview('backend/user/cetak_pdf',['data_admin'=>$data_admin]);
-    	return view('backend.user.cetak_pdf',compact('data_admin'));
+    	return view('backend.data_admin.cetak_pdf',compact('data_admin'));
     }
 
     public function create()
     {
-
-
-        $data_admin = User:: where('is_admin','=',1)
-        ->get();
-
-        return view('backend.user.create',compact('data_admin'));
+        $role = Role::all();
+        return view('backend.data_admin.create', compact('role'));
     }
 
     public function store(Request $request)
     {
 
-        $nama = $request->nama;  
+        $nama = $request->name;  
 
-        $role = 1;
+        $role = $request->id_role;
+
         $user = User::create([
             'name' =>$nama,
             'email' =>$request->email,
-            'password' => Hash::make($request->password),
             'is_admin' => $role,
+            'password' => Hash::make($request->password),
 
         ]);
 
         $id_user = $user->id;
+        $nama_user = $user->name;
+        $jenis_kelamin = $request->jenis_kelamin;  
+        $fotodefault = 'default.jpg';
 
-        $message = [
-            'required' => ':attribute wajib diisi!!!',
-            'min' => ':attribute harus diisi minimal 15 huruf!!!',
-            'max' => ':attribute URL harus diisi maksimal 100 huruf!!!',
-            'mimes' => ':attribute harus berupa gambar dengan format (JPEG, PNG, dan SVG)',
-        ];
-
-        $validator = FacadesValidator::make($request->all(),[
-            'email' => 'required|string|max:40',
-        ], $message)->validate();
-
-
-        $data_simpan = [
+        Admin::create([
+            'name' => $nama_user,
+            'jenis_kelamin' => $jenis_kelamin,
+            'foto' => $fotodefault,
             'id' => $id_user,
-        ];
+        ]);
 
-        AdminUser::where('nama', $nama)->update($data_simpan);
-
-        return redirect()->route('user.index')
-                        ->with('success','Data Peternak baru telah berhasil disimpan');
+        return redirect()->route('data_admin.index')
+                        ->with('success','Data Admin baru telah berhasil disimpan');
     }
 
 
     public function edit($id)
     {
+        $role = Role::all();
 
+        $data = Admin::select('admin.*','users.*')
+                ->join('users', 'users.id', '=', 'admin.id')
+                ->where('admin.id_admin', $id)->first();
 
+        return view('backend.data_admin.edit', compact('role','data'));
     }
 
     public function update(Request $request, $id)
     { 
+        $gbr=$request->nama_gambar;
+        
+        if($request->has('gambar')) {
+            $getimageName = rand(11111, 99999) . '.' . $request->file('gambar')->getClientOriginalExtension();
+            $request->gambar->move(public_path('data/data_admin'), $getimageName);
+        }else {
+            $getimageName = $gbr;
+        }
 
+        $data_simpan = [
+            'name' => $request->name,
+            'foto' => $getimageName,
+            'jenis_kelamin' => $request->jenis_kelamin,
+        ];
+
+        Admin::where('id_admin', $id)->update($data_simpan);
+
+        $data_user = User::join('admin', 'admin.id', '=', 'users.id')
+                ->where('admin.id_admin', $id)->first();
+
+        $id_user = $data_user->id;
+        $name_user = $data_user->name;
+        $email_user = $request->email;
+
+        $data_simpan2 = [
+            'name' => $name_user,
+            'email' => $email_user,
+        ];
+
+        User::where('id', $id_user)->update($data_simpan2);
+
+        return redirect()->route('data_admin.index')
+                        ->with('success','Data admin telah berhasil diperbarui');
         
     }
 
     public function ubahpw($id)
     {
+        // $data = Admin::select('admin.*','users.*')
+        // ->join('users', 'users.id', '=', 'admin.id') 
+        // ->where('admin.id', $id)->first();
+        $data = User::join('admin', 'admin.id', '=', 'users.id')
+                ->where('users.id', $id)->first();
+
+        return view('backend.data_admin.ubahpw',compact('data'));
         
     }
 
     public function ubahpassword(Request $request, $id)
     {
-        
+        $message = [
+            'numeric' => ':attributer harus diisi nomor.'
+        ];
+
+        $validator = FacadesValidator::make($request->all(),[
+            'password' => 'required|string|max:40',
+        ], $message)->validate();
+
+        $data_update = [
+            'password' => Hash::make($request->input('password')),
+        ];
+
+        User::where('id', $id)->update($data_update);
+
+        return redirect()->route('data_admin.index')
+                        ->with('success','Password Akun Admin telah berhasil diperbarui');   
     }
 
 
     public function destroy($id)
     {
-        $admin = User::where('id',$id)->delete();
+        User::where('id',$id)->delete();
+        Admin::where('id', $id)->delete();
 
-        // Mengubah id di data staf menjadi 0, artinya tidak punya akun
-        $hapusId = 0;
-        $data_simpan = [
-            'id' => $hapusId,
-        ];
 
-        AdminUser::where('id', $id)->update($data_simpan);
-
-        // $petugasuser= DokterUser::where('id',$id)->delete();
-        return redirect()->route('user.index')
+        return redirect()->route('data_admin.index')
                         ->with('success','Data admin telah berhasil dihapus');
     }
 }
