@@ -36,8 +36,14 @@ Route::group(['namespace' => 'Backend'], function()
     Route::get('/data_artikel/{id}/detail','ArtikelController@detail');
     Route::POST('/data_artikel/store','ArtikelController@store')->name('data_artikel.store');
     Route::match(['get','post'], '/data_artikel/edit/{id}','ArtikelController@edit');
-    Route::GET('/data_artikel/delete/{id}','ArtikelController@delete');
-    Route::get('/cetak_pdf/data_artikel','ArtikelController@cetakartikel')->name('data_artikel.cetak_pdf');
+    Route::GET('/data_artikel/destroy/{id}','ArtikelController@destroy');
+    Route::get('/cetak_pdf/data_artikel','ArtikelController@cetak_pdf')->name('data_artikel.cetak_pdf');
+
+    // CRUD Data Banner
+    Route::resource('data_banner','BannerController');
+    Route::POST('/data_banner/store','BannerController@store')->name('data_banner.store');
+    Route::match(['get','post'], '/data_banner/edit/{id}','BannerController@edit');
+    Route::GET('/data_banner/destroy/{id}','BannerController@destroy');
    
 });
 

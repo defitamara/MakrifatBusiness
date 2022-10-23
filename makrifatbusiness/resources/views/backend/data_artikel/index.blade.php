@@ -98,7 +98,13 @@
                     <button type="button" class="btn btn-primary">
                       Tambah Data +
                     </button>
-                  </a><br><br>
+                  </a>
+                  <a href="{{ route('data_artikel.cetak_pdf') }}" class="card-title" target="_blank">
+                    <button type="button" class="btn btn-secondary">
+                      Cetak PDF
+                    </button>
+                  </a>
+                  <br><br>
 
                   {{-- Alert --}}
                   @if ($message = Session::get('success'))

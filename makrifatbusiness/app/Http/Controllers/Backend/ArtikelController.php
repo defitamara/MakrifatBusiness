@@ -9,6 +9,9 @@ use App\Models\Artikel;
 use App\Models\KategoriArtikel;
 use Illuminate\Support\Carbon; 
 use File; 
+use PDF;
+// use Illuminate\Support\Facades\Crypt;
+// use Barryvdh\DomPDF\Facades as PDF;
 
 class ArtikelController extends Controller
 {
@@ -20,6 +23,17 @@ class ArtikelController extends Controller
                    ->get();
         return view('backend.data_artikel.index', compact('artikel'));
     }
+
+    public function cetak_pdf()
+    {
+        $artikel = Artikel::join('kategori_artikel', 'kategori_artikel.id_ktg', '=', 'artikel.id_ktg')
+                    ->orderBy('id_artikel','desc')
+                    ->get();
+
+    	$pdf = PDF::loadview('/cetak_pdf/data_artikel',['artikel'=>$artikel]);
+    	return view('backend.data_artikel.cetak_pdf',compact('artikel'));
+    }
+
     public function create()
     {
         $kategori = KategoriArtikel::all();
