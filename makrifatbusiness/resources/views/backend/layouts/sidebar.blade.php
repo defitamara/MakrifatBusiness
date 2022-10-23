@@ -19,19 +19,19 @@
               <li class="sidebar-item">
                 <a
                   class="sidebar-link waves-effect waves-dark sidebar-link"
-                  href="/artikel"
+                  href="/user"
                   aria-expanded="false"
                   ><i class="mdi mdi-receipt"></i
-                  ><span class="hide-menu">Artikel</span></a
+                  ><span class="hide-menu">Admin</span></a
                 >
               </li>
               <li class="sidebar-item">
                 <a
                   class="sidebar-link waves-effect waves-dark sidebar-link"
-                  href="/user"
+                  href="/data_artikel"
                   aria-expanded="false"
                   ><i class="mdi mdi-receipt"></i
-                  ><span class="hide-menu">Admin</span></a
+                  ><span class="hide-menu">Artikel</span></a
                 >
               </li>
               <li class="sidebar-item">

@@ -30,9 +30,14 @@ Route::group(['namespace' => 'Backend'], function()
 {
     // Route::resource('dashboard','DashboardController');
     Route::resource('/user', 'DataUserAdminController');
-    Route::get('/user/{id}/detail','DataUserAdminController@detail');
-    Route::resource('artikel','ArtikelController');
-    Route::get('/artikel/{id}/detail','ArtikelController@detail');
+
+    // CRUD Data Artikel
+    Route::resource('data_artikel','ArtikelController');
+    Route::get('/data_artikel/{id}/detail','ArtikelController@detail');
+    Route::POST('/data_artikel/store','ArtikelController@store')->name('data_artikel.store');
+    Route::match(['get','post'], '/data_artikel/edit/{id}','ArtikelController@edit');
+    Route::GET('/data_artikel/delete/{id}','ArtikelController@delete');
+    Route::get('/cetak_pdf/data_artikel','ArtikelController@cetakartikel')->name('data_artikel.cetak_pdf');
    
 });
 

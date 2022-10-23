@@ -18,12 +18,12 @@ class ArtikelController extends Controller
         $artikel = Artikel::join('kategori_artikel', 'kategori_artikel.id_ktg', '=', 'artikel.id_ktg')
                    ->orderBy('id_artikel','asc')
                    ->get();
-        return view('backend.artikel.index', compact('artikel'));
+        return view('backend.data_artikel.index', compact('artikel'));
     }
     public function create()
     {
         $kategori = KategoriArtikel::all();
-        return view('backend.artikel.create',compact('kategori'));
+        return view('backend.data_artikel.create',compact('kategori'));
     }
     public function store(Request $request)
     {
@@ -48,7 +48,7 @@ class ArtikelController extends Controller
         Artikel::create($data_simpan);
         $upload_success = $request->file('gambar')->move(public_path('data/data_artikel/'), $getimageName);
 
-        return redirect()->route('artikel.index')
+        return redirect()->route('data_artikel.index')
         ->with('success','Artikel baru berhasil disimpan.')
         ->with('image',$getimageName);
     }
@@ -59,14 +59,14 @@ class ArtikelController extends Controller
                    ->orderBy('id_artikel','asc')
                    ->where('id_artikel',$id)
                    ->get();
-        return view('backend.artikel.detail',compact('artikel'));
+        return view('backend.data_artikel.detail',compact('artikel'));
     }
     
     public function edit($id)
     {
         $artikel = Artikel::where('id_artikel',$id)->first();
         $kategori = KategoriArtikel::all();
-        return view('backend.artikel.edit',compact('artikel','kategori'));
+        return view('backend.data_artikel.edit',compact('artikel','kategori'));
     }
 
     public function update(Request $request, $id)
@@ -90,7 +90,7 @@ class ArtikelController extends Controller
 
         Artikel::where('id_artikel', $id)->update($data_simpan);
 
-        return redirect()->route('artikel.index')
+        return redirect()->route('data_artikel.index')
                         ->with('success','Data artikel telah berhasil diperbarui');
     }
 
@@ -103,7 +103,7 @@ class ArtikelController extends Controller
         // Menghapus data dari database
         Artikel::where('id_artikel',$id)->delete();
 
-        return redirect()->route('artikel.index')
+        return redirect()->route('data_artikel.index')
                         ->with('success','Data artikel telah berhasil dihapus');
     }
 }
