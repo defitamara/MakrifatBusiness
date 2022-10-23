@@ -44,6 +44,10 @@ Route::group(['namespace' => 'Backend'], function()
     Route::POST('/data_banner/store','BannerController@store')->name('data_banner.store');
     Route::match(['get','post'], '/data_banner/edit/{id}','BannerController@edit');
     Route::GET('/data_banner/destroy/{id}','BannerController@destroy');
+
+    // RU Data Tentang Kami
+    Route::resource('data_tk','TentangKamiController');
+    Route::match(['get','post'], '/data_tk/edit/{id}','TentangKamiController@edit');
    
 });
 
