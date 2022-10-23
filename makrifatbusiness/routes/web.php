@@ -29,17 +29,19 @@ Route::get('dashboard', [App\Http\Controllers\HomeController::class, 'dashboard'
 Route::group(['namespace' => 'Backend'], function()
 {
     // Route::resource('dashboard','DashboardController');
+    Route::resource('/user', 'DataUserAdminController');
+    Route::get('/user/{id}/detail','DataUserAdminController@detail');
     Route::resource('artikel','ArtikelController');
     Route::get('/artikel/{id}/detail','ArtikelController@detail');
+   
 });
 
 Route::group(['namespace' => 'Frontend'], function()
 {
 
     // Route::resource('dashboard','DashboardController');
-    Route::resource('/user', 'DataUserAdminController');
-    Route::get('/user/{id}/detail','DataUserAdminController@detail');
     Route::resource('/frontend/artikel','ArtikelController');
+    
     Route::resource('/frontend/detail-artikel','DetailArtikelController');
     // Route::get('frontend/artikel/{id}/detail','ArtikelController@detail');
 });
