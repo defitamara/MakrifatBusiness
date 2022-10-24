@@ -25,7 +25,7 @@
                   ><span class="hide-menu">Admin</span></a
                 >
               </li>
-              <li class="sidebar-item">
+              {{-- <li class="sidebar-item">
                 <a
                   class="sidebar-link waves-effect waves-dark sidebar-link"
                   href="/data_banner"
@@ -33,7 +33,7 @@
                   ><i class="mdi mdi-receipt"></i
                   ><span class="hide-menu">Banner</span></a
                 >
-              </li>
+              </li> --}}
               <li class="sidebar-item">
                 <a
                   class="sidebar-link waves-effect waves-dark sidebar-link"

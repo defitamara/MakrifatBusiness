@@ -17,18 +17,18 @@
         <div id="header-carousel" class="carousel slide" data-bs-ride="carousel">
             <div class="carousel-indicators">
                 <button type="button" data-bs-target="#header-carousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1">
-                    <img class="img-fluid" src="{{ asset('frontend/img/carousel-1.jpg') }}" alt="Image">
+                    <img class="img-fluid" src="{{ asset('frontend/carousel/carousel-1.jpg') }}" alt="Image">
                 </button>
                 <button type="button" data-bs-target="#header-carousel" data-bs-slide-to="1" aria-label="Slide 2">
-                    <img class="img-fluid" src="{{ asset('frontend/img/carousel-2.jpg') }}" alt="Image">
+                    <img class="img-fluid" src="{{ asset('frontend/carousel/carousel-2.jpg') }}" alt="Image">
                 </button>
                 <button type="button" data-bs-target="#header-carousel" data-bs-slide-to="2" aria-label="Slide 3">
-                    <img class="img-fluid" src="{{ asset('frontend/img/carousel-3.jpg') }}" alt="Image">
+                    <img class="img-fluid" src="{{ asset('frontend/carousel/carousel-3.jpg') }}" alt="Image">
                 </button>
             </div>
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <img class="w-100" src="{{ asset('frontend/img/carousel-1.jpg') }}" alt="Image">
+                    <img class="w-100" src="{{ asset('frontend/carousel/carousel-1.jpg') }}" alt="Image">
                     <div class="carousel-caption">
                         <div class="p-3" style="max-width: 900px;">
                             <h4 class="text-white text-uppercase mb-4 animated zoomIn">Satu Rumah Satu Usaha</h4>
@@ -37,7 +37,7 @@
                     </div>
                 </div>
                 <div class="carousel-item">
-                    <img class="w-100" src="{{ asset('frontend/img/carousel-2.jpg') }}" alt="Image">
+                    <img class="w-100" src="{{ asset('frontend/carousel/carousel-2.jpg') }}" alt="Image">
                     <div class="carousel-caption">
                         <div class="p-3" style="max-width: 900px;">
                             <h4 class="text-white text-uppercase mb-4 animated zoomIn">Yayasan Pondok Pesantren</h4>
@@ -46,7 +46,7 @@
                     </div>
                 </div>
                 <div class="carousel-item">
-                    <img class="w-100" src="{{ asset('frontend/img/carousel-3.jpg') }}" alt="Image">
+                    <img class="w-100" src="{{ asset('frontend/carousel/carousel-3.jpg') }}" alt="Image">
                     <div class="carousel-caption">
                         <div class="p-3" style="max-width: 900px;">
                             <h4 class="text-white text-uppercase mb-4 animated zoomIn">Santri Digital</h4>
@@ -109,33 +109,34 @@
 
 
     <!-- About Start -->
+    @foreach($tk as $itemtk)
     <div class="container-xxl py-5">
         <div class="container">
             <div class="row g-5">
                 <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
                     <div class="img-border">
-                        <img class="img-fluid" src="{{ asset('frontend/img/about.jpg') }}" alt="">
+                        <img class="img-fluid" src="data/data_tk/{{ $itemtk->gambar }}" alt="">
                     </div>
                 </div>
                 <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.5s">
                     <div class="h-100">
                         <h6 class="section-title bg-white text-start text-primary pe-3">Tentang Kami</h6>
-                        <h1 class="display-6 mb-4">#1 Solusi Digital Marketing <span class="text-primary">10 Tahun</span> Pengalaman</h1>
-                        <p>Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu diam amet diam et eos. Clita erat ipsum et lorem et sit, sed stet lorem sit clita duo justo magna dolore erat amet</p>
-                        <p class="mb-4">Stet no et lorem dolor et diam, amet duo ut dolore vero eos. No stet est diam rebum amet diam ipsum. Clita clita labore, dolor duo nonumy clita sit at, sed sit sanctus dolor eos.</p>
+                        <h1 class="display-6 mb-4">{{ $itemtk->judul }}</h1>
+                        <p>{!! $itemtk->deskripsi !!}</p>
                         <div class="d-flex align-items-center mb-4 pb-2">
-                            <img class="flex-shrink-0 rounded-circle" src="{{ asset('frontend/img/team-1.jpg') }}" alt="" style="width: 50px; height: 50px;">
+                            <img class="flex-shrink-0 rounded-circle" src="data/data_tk/{{ $itemtk->foto_pemilik }}" alt="" style="width: 50px; height: 50px;">
                             <div class="ps-4">
-                                <h6>Jhon Doe</h6>
-                                <small>SEO & Founder</small>
+                                <h6>{{ $itemtk->nama_pemilik }}</h6>
+                                <small>{{ $itemtk->jabatan }}</small>
                             </div>
                         </div>
-                        <a class="btn btn-primary rounded-pill py-3 px-5" href="">Read More</a>
+                        <a class="btn btn-primary rounded-pill py-3 px-5" href="#">Read More</a>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+    @endforeach
     <!-- About End -->
 
 
@@ -347,17 +348,19 @@
                 <h1 class="display-6 mb-4">Berita dan Artikel Terkini</h1>
             </div>
             <div class="row g-4">
+                @foreach($artikel as $itemartikel)
                 <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
                     <a class="service-item d-block rounded text-center h-100 p-4" href="">
-                        <img class="img-fluid rounded" src="{{ asset('frontend/img/service-2.jpg') }}" alt="">
+                        <img class="img-fluid rounded" src="data/data_artikel/{{ $itemartikel->gambar }}" alt="">
                         <div class="box1">
-                            <b>Admin</b> | <span>20 Oktober 2022</span>
+                            <b>{{ $itemartikel->penulis }}</b> | <span>{{ $itemartikel->tanggal }}</span>
                         </div>
-                        <h5>Cara Jitu Meningkatkan SEO Website Secara Organik</h5>
-                        <button type="button" class="btn btn-outline-primary">Read More</button>
+                        <h5>{{ $itemartikel->judul }}</h5>
+                        <button type="button" class="btn btn-outline-primary" >Read More</button>
                     </a>
                 </div>
-                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                @endforeach
+                {{-- <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
                     <a class="service-item d-block rounded text-center h-100 p-4" href="">
                         <img class="img-fluid rounded" src="{{ asset('frontend/img/service-4.jpg') }}" alt="">
                         <div class="box1">
@@ -376,7 +379,7 @@
                         <h5>Program 1 Santri 1 Usaha, Mahasiswa Wirausaha Merdeka</h5>
                         <button type="button" class="btn btn-outline-primary">Read More</button>
                     </a>
-                </div>
+                </div> --}}
             </div>
         </div>
     </div>

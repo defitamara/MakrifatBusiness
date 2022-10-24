@@ -16,10 +16,11 @@ use Illuminate\Support\Facades\Auth;
 |
 */
 
-Route::get('/', function () {
-    // return view('welcome');
-    return view('frontend.home');
-});
+// Route::get('/', function () {
+//     // return view('welcome');
+//     return view('frontend.home');
+// });
+
 
 
 Auth::routes();
@@ -61,9 +62,8 @@ Route::group(['namespace' => 'Backend'], function()
 Route::group(['namespace' => 'Frontend'], function()
 {
 
-    // Route::resource('dashboard','DashboardController');
+    Route::get('/', 'HomeController@index');
     Route::resource('/frontend/artikel','ArtikelController');
-    
-    Route::resource('/frontend/detail-artikel','DetailArtikelController');
-    // Route::get('frontend/artikel/{id}/detail','ArtikelController@detail');
+    // Route::resource('/frontend/detail-artikel','DetailArtikelController');
+    Route::get('frontend/artikel/{id}/detail','ArtikelController@detail');
 });
