@@ -70,38 +70,46 @@
     <!-- Carousel End -->
 
 
-    <!-- Facts Start -->
+    <!-- Facts Start / Data Yayasan -->
     <div class="container-xxl py-5">
         <div class="container">
             <div class="row g-4">
+                @foreach($data_yayasan1 as $itemyay1)
                 <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
                     <div class="fact-item bg-light rounded text-center h-100 p-5">
                         <i class="fa fa-certificate fa-4x text-primary mb-4"></i>
-                        <h5 class="mb-3">Tahun Berdiri</h5>
-                        <h1 class="display-5 mb-0" data-toggle="counter-up">2022</h1>
+                        <h5 class="mb-3">{{ $itemyay1->judul }}</h5>
+                        <h1 class="display-5 mb-0" data-toggle="counter-up">{{ $itemyay1->jumlah }}</h1>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
+                @endforeach
+                @foreach($data_yayasan2 as $itemyay2)
+                <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
                     <div class="fact-item bg-light rounded text-center h-100 p-5">
                         <i class="fa fa-users-cog fa-4x text-primary mb-4"></i>
-                        <h5 class="mb-3">Ustad Digital</h5>
-                        <h1 class="display-5 mb-0" data-toggle="counter-up">10</h1>
+                        <h5 class="mb-3">{{ $itemyay2->judul }}</h5>
+                        <h1 class="display-5 mb-0" data-toggle="counter-up">{{ $itemyay2->jumlah }}</h1>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
+                @endforeach
+                @foreach($data_yayasan3 as $itemyay3)
+                <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
                     <div class="fact-item bg-light rounded text-center h-100 p-5">
                         <i class="fa fa-users fa-4x text-primary mb-4"></i>
-                        <h5 class="mb-3">Santri</h5>
-                        <h1 class="display-5 mb-0" data-toggle="counter-up">100</h1>
+                        <h5 class="mb-3">{{ $itemyay3->judul }}</h5>
+                        <h1 class="display-5 mb-0" data-toggle="counter-up">{{ $itemyay3->jumlah }}</h1>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.7s">
+                @endforeach
+                @foreach($data_yayasan4 as $itemyay4)
+                <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
                     <div class="fact-item bg-light rounded text-center h-100 p-5">
                         <i class="fa fa-check fa-4x text-primary mb-4"></i>
-                        <h5 class="mb-3">Artikel</h5>
-                        <h1 class="display-5 mb-0" data-toggle="counter-up">7999</h1>
+                        <h5 class="mb-3">{{ $itemyay4->judul }}</h5>
+                        <h1 class="display-5 mb-0" data-toggle="counter-up">{{ $itemyay4->jumlah }}</h1>
                     </div>
                 </div>
+                @endforeach
             </div>
         </div>
     </div>

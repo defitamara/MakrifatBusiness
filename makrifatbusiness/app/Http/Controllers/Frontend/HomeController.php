@@ -13,6 +13,7 @@ use App\Models\Artikel;
 use App\Models\KategoriArtikel;
 use App\Models\TentangKami;
 use App\Models\Pelayanan;
+use App\Models\DataYayasan;
 
 class HomeController extends Controller
 {
@@ -24,7 +25,16 @@ class HomeController extends Controller
             ->paginate(3);
         $tk = TentangKami::All();
         $pelayanan = Pelayanan::all();
+        $data_yayasan1 =  DataYayasan::all()
+                        ->where('id','=',1);
+        $data_yayasan2 =  DataYayasan::all()
+                        ->where('id','=',2);
+        $data_yayasan3 =  DataYayasan::all()
+                        ->where('id','=',3);
+        $data_yayasan4 =  DataYayasan::all()
+                        ->where('id','=',4);
 
-        return view('frontend.home',compact('banner','artikel','tk','pelayanan'));
+        return view('frontend.home',compact('banner','artikel','tk','pelayanan',
+        'data_yayasan1','data_yayasan2','data_yayasan3','data_yayasan4'));
     }
 }
