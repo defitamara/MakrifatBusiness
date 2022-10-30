@@ -72,6 +72,12 @@ Route::group(['namespace' => 'Backend'], function()
      Route::POST('/data_tim/store','TimController@store')->name('data_tim.store');
      Route::match(['get','post'], '/data_tim/edit/{id}','TimController@edit');
      Route::GET('/data_tim/destroy/{id}','TimController@destroy');
+
+       // CRUD Data Galeri
+       Route::resource('data_galeri','GaleriController');
+       Route::POST('/data_galeri/store','GaleriController@store')->name('data_galeri.store');
+       Route::match(['get','post'], '/data_galeri/edit/{id}','GaleriController@edit');
+       Route::GET('/data_galeri/destroy/{id}','GaleriController@destroy');
    
 });
 

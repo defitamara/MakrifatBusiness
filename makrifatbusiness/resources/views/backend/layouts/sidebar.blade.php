@@ -82,15 +82,15 @@
                 >
               </li>
               
-              {{-- <li class="sidebar-item">
+              <li class="sidebar-item">
                 <a
                   class="sidebar-link waves-effect waves-dark sidebar-link"
-                  href="/galeri"
+                  href="/data_galeri"
                   aria-expanded="false"
                   ><i class="mdi mdi-multiplication-box"></i
-                  ><span class="hide-menu">Gallery</span></a
+                  ><span class="hide-menu">Galery</span></a
                 >
-              </li> --}}
+              </li>
               
             </ul>
           </nav>
