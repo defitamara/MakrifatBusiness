@@ -56,6 +56,12 @@ Route::group(['namespace' => 'Backend'], function()
     // RU Data Tentang Kami
     Route::resource('data_tk','TentangKamiController');
     Route::match(['get','post'], '/data_tk/edit/{id}','TentangKamiController@edit');
+
+     // CRUD Data Pelayanan
+     Route::resource('data_pelayanan','PelayananController');
+     Route::POST('/data_pelayanan/store','PelayananController@store')->name('data_pelayanan.store');
+     Route::match(['get','post'], '/data_pelayanan/edit/{id}','PelayananController@edit');
+     Route::GET('/data_pelayanan/destroy/{id}','PelayananController@destroy');
    
 });
 
