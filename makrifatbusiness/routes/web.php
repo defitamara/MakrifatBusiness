@@ -66,6 +66,12 @@ Route::group(['namespace' => 'Backend'], function()
       // CRUD Data Yayasan
       Route::resource('data_yayasan','DataYayasanController');
       Route::match(['get','post'], '/data_yayasan/edit/{id}','DataYayasanController@edit');
+
+       // CRUD Data Tim
+     Route::resource('data_tim','TimController');
+     Route::POST('/data_tim/store','TimController@store')->name('data_tim.store');
+     Route::match(['get','post'], '/data_tim/edit/{id}','TimController@edit');
+     Route::GET('/data_tim/destroy/{id}','TimController@destroy');
    
 });
 
