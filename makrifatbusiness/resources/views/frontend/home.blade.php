@@ -350,36 +350,26 @@
             <div class="row g-4">
                 @foreach($artikel as $itemartikel)
                 <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-                    <a class="service-item d-block rounded text-center h-100 p-4" href="">
+                    <a class="service-item d-block rounded text-center h-100 p-4" href="{{ route('artikel.detail',$itemartikel->id_artikel) }}">
                         <img class="img-fluid rounded" src="data/data_artikel/{{ $itemartikel->gambar }}" alt="">
                         <div class="box1">
                             <b>{{ $itemartikel->penulis }}</b> | <span>{{ $itemartikel->tanggal }}</span>
                         </div>
-                        <h5>{{ $itemartikel->judul }}</h5>
-                        <button type="button" class="btn btn-outline-primary" >Read More</button>
+                        <h5>{{ $itemartikel->judul }} </h5>
+                        <button type="button" class="btn btn-outline-primary" onclick="">Read More</button>
+                        
                     </a>
                 </div>
                 @endforeach
-                {{-- <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-                    <a class="service-item d-block rounded text-center h-100 p-4" href="">
-                        <img class="img-fluid rounded" src="{{ asset('frontend/img/service-4.jpg') }}" alt="">
-                        <div class="box1">
-                            <b>Admin</b> | <span>21 Oktober 2022</span>
-                        </div>
-                        <h5>Konsep Dasar Digital Marketing Era 5.0</h5>
-                        <button type="button" class="btn btn-outline-primary">Read More</button>
-                    </a>
-                </div>
-                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-                    <a class="service-item d-block rounded text-center h-100 p-4" href="">
-                        <img class="img-fluid rounded" src="{{ asset('frontend/img/service-5.jpg') }}" alt="">
-                        <div class="box1">
-                            <b>Admin</b> | <span>22 Oktober 2022</span>
-                        </div>
-                        <h5>Program 1 Santri 1 Usaha, Mahasiswa Wirausaha Merdeka</h5>
-                        <button type="button" class="btn btn-outline-primary">Read More</button>
-                    </a>
-                </div> --}}
+            </div>
+            <br>
+            <div class="row">
+                <nav class="blog-pagination justify-content-center d-flex">
+                {{-- Pagination --}}
+                <ul class="pagination">
+                    {{ $artikel->links()}}
+                </ul>
+                </nav>
             </div>
         </div>
     </div>

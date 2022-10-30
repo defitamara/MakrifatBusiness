@@ -40,6 +40,11 @@
             padding: 10px;
             margin: 10px 0px;
         }
+        .link-read {
+            color: red;
+            padding: 10px;
+            margin: 10px 0px;
+        }
     </style>
 </head>
 

@@ -70,6 +70,8 @@ Route::group(['namespace' => 'Frontend'], function()
 
     Route::get('/', 'HomeController@index');
     Route::resource('/frontend/artikel','ArtikelController');
-    // Route::resource('/frontend/detail-artikel','DetailArtikelController');
-    Route::get('frontend/artikel/{id}/detail','ArtikelController@detail');
+    // Route::get('frontend/artikel/cari', 'ArtikelController@cari');
+    // Route::get('frontend/artikel/kategori', 'ArtikelController@kategori');
+    // cari dan kategori belum berfungsi
+    Route::get('frontend/artikel/{id}/detail','ArtikelController@detail')->name('artikel.detail');
 });
