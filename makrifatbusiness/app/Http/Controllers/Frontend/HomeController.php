@@ -12,6 +12,7 @@ use App\Models\Banner;
 use App\Models\Artikel;
 use App\Models\KategoriArtikel;
 use App\Models\TentangKami;
+use App\Models\Pelayanan;
 
 class HomeController extends Controller
 {
@@ -22,7 +23,8 @@ class HomeController extends Controller
             ->orderBy('id_artikel','desc')
             ->paginate(3);
         $tk = TentangKami::All();
-        
-        return view('frontend.home',compact('banner','artikel','tk'));
+        $pelayanan = Pelayanan::all();
+
+        return view('frontend.home',compact('banner','artikel','tk','pelayanan'));
     }
 }

@@ -140,7 +140,7 @@
     <!-- About End -->
 
 
-    <!-- Service Start -->
+    <!-- Service / Pelayanan Start -->
     <div class="container-xxl py-5">
         <div class="container">
             <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
@@ -148,42 +148,14 @@
                 <h1 class="display-6 mb-4">Kami Fokus Dalam Sektor Penting Era 5.0</h1>
             </div>
             <div class="row g-4">
+                @foreach($pelayanan as $itemply)
                 <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
                     <a class="service-item d-block rounded text-center h-100 p-4" href="">
-                        <img class="img-fluid rounded mb-4" src="{{ asset('frontend/img/service-1.jpg') }}" alt="">
-                        <h4 class="mb-0">Content Creator</h4>
+                        <img class="img-fluid rounded mb-4" src="/data/data_pelayanan/{{ $itemply->gambar }}" alt="">
+                        <h4 class="mb-0">{{ $itemply->judul }}</h4>
                     </a>
                 </div>
-                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
-                    <a class="service-item d-block rounded text-center h-100 p-4" href="">
-                        <img class="img-fluid rounded mb-4" src="{{ asset('frontend/img/service-2.jpg') }}" alt="">
-                        <h4 class="mb-0">Digital Marketing</h4>
-                    </a>
-                </div>
-                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
-                    <a class="service-item d-block rounded text-center h-100 p-4" href="">
-                        <img class="img-fluid rounded mb-4" src="{{ asset('frontend/img/service-3.jpg') }}" alt="">
-                        <h4 class="mb-0">SEO Optimization</h4>
-                    </a>
-                </div>
-                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-                    <a class="service-item d-block rounded text-center h-100 p-4" href="">
-                        <img class="img-fluid rounded mb-4" src="{{ asset('frontend/img/service-4.jpg') }}" alt="">
-                        <h4 class="mb-0">Social Marketing</h4>
-                    </a>
-                </div>
-                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
-                    <a class="service-item d-block rounded text-center h-100 p-4" href="">
-                        <img class="img-fluid rounded mb-4" src="{{ asset('frontend/img/service-5.jpg') }}" alt="">
-                        <h4 class="mb-0">Personal Branding</h4>
-                    </a>
-                </div>
-                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
-                    <a class="service-item d-block rounded text-center h-100 p-4" href="">
-                        <img class="img-fluid rounded mb-4" src="{{ asset('frontend/img/service-6.jpg') }}" alt="">
-                        <h4 class="mb-0">Company Holding</h4>
-                    </a>
-                </div>
+                @endforeach
             </div>
         </div>
     </div>
