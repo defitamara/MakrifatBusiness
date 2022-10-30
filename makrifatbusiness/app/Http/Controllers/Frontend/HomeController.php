@@ -14,6 +14,7 @@ use App\Models\KategoriArtikel;
 use App\Models\TentangKami;
 use App\Models\Pelayanan;
 use App\Models\DataYayasan;
+use App\Models\Tim;
 
 class HomeController extends Controller
 {
@@ -33,8 +34,9 @@ class HomeController extends Controller
                         ->where('id','=',3);
         $data_yayasan4 =  DataYayasan::all()
                         ->where('id','=',4);
+        $tim = Tim::All();
 
         return view('frontend.home',compact('banner','artikel','tk','pelayanan',
-        'data_yayasan1','data_yayasan2','data_yayasan3','data_yayasan4'));
+        'data_yayasan1','data_yayasan2','data_yayasan3','data_yayasan4','tim'));
     }
 }

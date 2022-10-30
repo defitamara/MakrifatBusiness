@@ -364,54 +364,24 @@
                 <h1 class="display-6 mb-4">Kami adalah Tim Tepat Untuk Mimpi Hebat Anda</h1>
             </div>
             <div class="row g-4">
+                @foreach($tim as $itemtim)
                 <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
                     <div class="team-item text-center p-4">
-                        <img class="img-fluid border rounded-circle w-75 p-2 mb-4" src="{{ asset('frontend/img/team-1.jpg') }}" alt="">
+                        <img class="img-fluid border rounded-circle w-75 p-2 mb-4" src="/data/data_tim/{{ $itemtim->foto }}" alt="">
                         <div class="team-text">
                             <div class="team-title">
-                                <h5>Full Name</h5>
-                                <span>Designation</span>
+                                <h5>{{ $itemtim->nama }}</h5>
+                                <span>{{ $itemtim->jabatan }}</span>
                             </div>
                             <div class="team-social">
-                                <a class="btn btn-square btn-primary rounded-circle" href=""><i class="fab fa-facebook-f"></i></a>
-                                <a class="btn btn-square btn-primary rounded-circle" href=""><i class="fab fa-twitter"></i></a>
-                                <a class="btn btn-square btn-primary rounded-circle" href=""><i class="fab fa-instagram"></i></a>
+                                <a class="btn btn-square btn-primary rounded-circle" href="{{ $itemtim->link_facebook }}"><i class="fab fa-facebook-f"></i></a>
+                                <a class="btn btn-square btn-primary rounded-circle" href="{{ $itemtim->link_twitter }}"><i class="fab fa-twitter"></i></a>
+                                <a class="btn btn-square btn-primary rounded-circle" href="{{ $itemtim->link_instagram }}"><i class="fab fa-instagram"></i></a>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
-                    <div class="team-item text-center p-4">
-                        <img class="img-fluid border rounded-circle w-75 p-2 mb-4" src="{{ asset('frontend/img/team-2.jpg') }}" alt="">
-                        <div class="team-text">
-                            <div class="team-title">
-                                <h5>Full Name</h5>
-                                <span>Designation</span>
-                            </div>
-                            <div class="team-social">
-                                <a class="btn btn-square btn-primary rounded-circle" href=""><i class="fab fa-facebook-f"></i></a>
-                                <a class="btn btn-square btn-primary rounded-circle" href=""><i class="fab fa-twitter"></i></a>
-                                <a class="btn btn-square btn-primary rounded-circle" href=""><i class="fab fa-instagram"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
-                    <div class="team-item text-center p-4">
-                        <img class="img-fluid border rounded-circle w-75 p-2 mb-4" src="{{ asset('frontend/img/team-3.jpg') }}" alt="">
-                        <div class="team-text">
-                            <div class="team-title">
-                                <h5>Full Name</h5>
-                                <span>Designation</span>
-                            </div>
-                            <div class="team-social">
-                                <a class="btn btn-square btn-primary rounded-circle" href=""><i class="fab fa-facebook-f"></i></a>
-                                <a class="btn btn-square btn-primary rounded-circle" href=""><i class="fab fa-twitter"></i></a>
-                                <a class="btn btn-square btn-primary rounded-circle" href=""><i class="fab fa-instagram"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                @endforeach
             </div>
         </div>
     </div>
