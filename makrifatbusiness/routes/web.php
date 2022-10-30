@@ -62,6 +62,10 @@ Route::group(['namespace' => 'Backend'], function()
      Route::POST('/data_pelayanan/store','PelayananController@store')->name('data_pelayanan.store');
      Route::match(['get','post'], '/data_pelayanan/edit/{id}','PelayananController@edit');
      Route::GET('/data_pelayanan/destroy/{id}','PelayananController@destroy');
+
+      // CRUD Data Yayasan
+      Route::resource('data_yayasan','DataYayasanController');
+      Route::match(['get','post'], '/data_yayasan/edit/{id}','DataYayasanController@edit');
    
 });
 

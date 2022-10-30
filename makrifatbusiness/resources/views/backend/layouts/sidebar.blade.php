@@ -62,6 +62,15 @@
                   ><span class="hide-menu">Pelayanan</span></a
                 >
               </li>
+              <li class="sidebar-item">
+                <a
+                  class="sidebar-link waves-effect waves-dark sidebar-link"
+                  href="/data_yayasan"
+                  aria-expanded="false"
+                  ><i class="mdi mdi-multiplication-box"></i
+                  ><span class="hide-menu">Data Yayasan</span></a
+                >
+              </li>
               
               {{-- <li class="sidebar-item">
                 <a
