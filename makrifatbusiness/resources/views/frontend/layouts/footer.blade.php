@@ -25,24 +25,11 @@
             <div class="col-lg-3 col-md-6">
                 <h5 class="text-light mb-4">Galeri</h5>
                 <div class="row g-2">
+                    @foreach($galeri as $itemgaleri)
                     <div class="col-4">
-                        <img class="img-fluid rounded" src="{{ asset('frontend/img/project-1.jpg') }}" alt="Image">
+                        <img class="img-fluid rounded" src="/data/data_galeri/{{ $itemgaleri->gambar }}" alt="Image">
                     </div>
-                    <div class="col-4">
-                        <img class="img-fluid rounded" src="{{ asset('frontend/img/project-2.jpg') }}" alt="Image">
-                    </div>
-                    <div class="col-4">
-                        <img class="img-fluid rounded" src="{{ asset('frontend/img/project-3.jpg') }}" alt="Image">
-                    </div>
-                    <div class="col-4">
-                        <img class="img-fluid rounded" src="{{ asset('frontend/img/project-4.jpg') }}" alt="Image">
-                    </div>
-                    <div class="col-4">
-                        <img class="img-fluid rounded" src="{{ asset('frontend/img/project-5.jpg') }}" alt="Image">
-                    </div>
-                    <div class="col-4">
-                        <img class="img-fluid rounded" src="{{ asset('frontend/img/project-6.jpg') }}" alt="Image">
-                    </div>
+                    @endforeach
                 </div>
             </div>
             <div class="col-lg-3 col-md-6">

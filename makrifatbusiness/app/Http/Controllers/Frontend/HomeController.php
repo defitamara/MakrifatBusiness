@@ -15,6 +15,7 @@ use App\Models\TentangKami;
 use App\Models\Pelayanan;
 use App\Models\DataYayasan;
 use App\Models\Tim;
+use App\Models\Galeri;
 
 class HomeController extends Controller
 {
@@ -34,9 +35,12 @@ class HomeController extends Controller
                         ->where('id','=',3);
         $data_yayasan4 =  DataYayasan::all()
                         ->where('id','=',4);
-        $tim = Tim::All();
+        $tim = Tim::orderBy('id','desc')
+                ->paginate(3);
+        $galeri = Galeri::orderBy('id','desc')
+                ->paginate(6);
 
         return view('frontend.home',compact('banner','artikel','tk','pelayanan',
-        'data_yayasan1','data_yayasan2','data_yayasan3','data_yayasan4','tim'));
+        'data_yayasan1','data_yayasan2','data_yayasan3','data_yayasan4','tim','galeri'));
     }
 }
