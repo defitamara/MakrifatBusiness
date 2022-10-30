@@ -78,7 +78,17 @@
                   href="/data_tim"
                   aria-expanded="false"
                   ><i class="mdi mdi-multiplication-box"></i
-                  ><span class="hide-menu">Data Tim</span></a
+                  ><span class="hide-menu">Tim</span></a
+                >
+              </li>
+
+              <li class="sidebar-item">
+                <a
+                  class="sidebar-link waves-effect waves-dark sidebar-link"
+                  href="/data_keunggulan"
+                  aria-expanded="false"
+                  ><i class="mdi mdi-multiplication-box"></i
+                  ><span class="hide-menu">Keunggulan</span></a
                 >
               </li>
               

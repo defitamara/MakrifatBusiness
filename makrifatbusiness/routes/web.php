@@ -78,6 +78,10 @@ Route::group(['namespace' => 'Backend'], function()
        Route::POST('/data_galeri/store','GaleriController@store')->name('data_galeri.store');
        Route::match(['get','post'], '/data_galeri/edit/{id}','GaleriController@edit');
        Route::GET('/data_galeri/destroy/{id}','GaleriController@destroy');
+
+        // CRUD Data Keunggulan
+      Route::resource('data_keunggulan','KeunggulanController');
+      Route::match(['get','post'], '/data_keunggulan/edit/{id_keunggulan}','KeunggulanController@edit');
    
 });
 
