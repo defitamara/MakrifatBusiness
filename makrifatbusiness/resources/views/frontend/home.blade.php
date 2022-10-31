@@ -123,22 +123,22 @@
             <div class="row g-5">
                 <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
                     <div class="img-border">
-                        <img class="img-fluid" src="data/data_tk/{{ $itemtk->gambar }}" alt="">
+                        <img class="img-fluid" src="/data/data_tk/{{ $itemtk->gambar }}" alt="">
                     </div>
                 </div>
                 <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.5s">
                     <div class="h-100">
                         <h6 class="section-title bg-white text-start text-primary pe-3">Tentang Kami</h6>
                         <h1 class="display-6 mb-4">{{ $itemtk->judul }}</h1>
-                        <p>{!! $itemtk->deskripsi !!}</p>
+                        <p>{!! \Illuminate\Support\Str::limit($itemtk->deskripsi , 300) !!}</p>
                         <div class="d-flex align-items-center mb-4 pb-2">
-                            <img class="flex-shrink-0 rounded-circle" src="data/data_tk/{{ $itemtk->foto_pemilik }}" alt="" style="width: 50px; height: 50px;">
+                            <img class="flex-shrink-0 rounded-circle" src="/data/data_tk/{{ $itemtk->foto_pemilik }}" alt="" style="width: 50px; height: 50px;">
                             <div class="ps-4">
                                 <h6>{{ $itemtk->nama_pemilik }}</h6>
                                 <small>{{ $itemtk->jabatan }}</small>
                             </div>
                         </div>
-                        <a class="btn btn-primary rounded-pill py-3 px-5" href="#">Read More</a>
+                        <a class="btn btn-primary rounded-pill py-3 px-5" href="/frontend/tentangkami">Read More</a>
                     </div>
                 </div>
             </div>

@@ -89,9 +89,14 @@ Route::group(['namespace' => 'Frontend'], function()
 {
 
     Route::get('/', 'HomeController@index');
+
+    // Artikel
     Route::resource('/frontend/artikel','ArtikelController');
     // Route::get('frontend/artikel/cari', 'ArtikelController@cari');
     // Route::get('frontend/artikel/kategori', 'ArtikelController@kategori');
     // cari dan kategori belum berfungsi
     Route::get('frontend/artikel/{id}/detail','ArtikelController@detail')->name('artikel.detail');
+
+    // Tentang Kami
+    Route::resource('/frontend/tentangkami','TentangKamiController');
 });

@@ -64,7 +64,7 @@
     <div class="collapse navbar-collapse" id="navbarCollapse">
         <div class="navbar-nav me-auto p-3 p-lg-0">
             <a href="/" class="nav-item nav-link">Home</a>
-            <a href="#" class="nav-item nav-link">Tentang Kami</a>
+            <a href="/frontend/tentangkami" class="nav-item nav-link">Tentang Kami</a>
             <a href="#" class="nav-item nav-link">Santri Digital</a>
             <a href="/frontend/artikel" class="nav-item nav-link">Berita</a>
             <div class="nav-item dropdown">
