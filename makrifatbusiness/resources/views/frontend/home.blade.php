@@ -176,44 +176,46 @@
             <div class="row g-5">
                 <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
                     <div class="h-100">
+                        @foreach($keunggulan as $itemku)
                         <h6 class="section-title bg-white text-start text-primary pe-3">MENGAPA HARUS KAMI?</h6>
-                        <h1 class="display-6 mb-4">Mengapa Mereka Mempercayai Kami? Baca Disini</h1>
-                        <p class="mb-4">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu diam amet diam et eos. Clita erat ipsum et lorem et sit, sed stet lorem sit clita duo justo magna dolore erat amet</p>
+                        <h1 class="display-6 mb-4">{{ $itemku->judul }}</h1>
+                        <p class="mb-4">{{ $itemku->deskripsi }}</p>
                         <div class="row g-4">
                             <div class="col-12">
                                 <div class="skill">
                                     <div class="d-flex justify-content-between">
-                                        <p class="mb-2">Digital Marketing</p>
-                                        <p class="mb-2">85%</p>
+                                        <p class="mb-2">{{ $itemku->kompetensi_1 }}</p>
+                                        <p class="mb-2">{{ $itemku->persentase_1 }}%</p>
                                     </div>
                                     <div class="progress">
-                                        <div class="progress-bar bg-primary" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"></div>
+                                        <div class="progress-bar bg-primary" role="progressbar" aria-valuenow="{{ $itemku->persentase_1 }}" aria-valuemin="0" aria-valuemax="100"></div>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-12">
                                 <div class="skill">
                                     <div class="d-flex justify-content-between">
-                                        <p class="mb-2">SEO & Backlinks</p>
-                                        <p class="mb-2">90%</p>
+                                        <p class="mb-2">{{ $itemku->kompetensi_2 }}</p>
+                                        <p class="mb-2">{{ $itemku->persentase_2 }}%</p>
                                     </div>
                                     <div class="progress">
-                                        <div class="progress-bar bg-primary" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
+                                        <div class="progress-bar bg-primary" role="progressbar" aria-valuenow="{{ $itemku->persentase_2 }}" aria-valuemin="0" aria-valuemax="100"></div>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-12">
                                 <div class="skill">
                                     <div class="d-flex justify-content-between">
-                                        <p class="mb-2">Copywriting & Goal Order</p>
-                                        <p class="mb-2">95%</p>
+                                        <p class="mb-2">{{ $itemku->kompetensi_3 }}</p>
+                                        <p class="mb-2">{{ $itemku->persentase_3 }}%</p>
                                     </div>
                                     <div class="progress">
-                                        <div class="progress-bar bg-primary" role="progressbar" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100"></div>
+                                        <div class="progress-bar bg-primary" role="progressbar" aria-valuenow="{{ $itemku->persentase_3 }}" aria-valuemin="0" aria-valuemax="100"></div>
                                     </div>
                                 </div>
                             </div>
                         </div>
+                        @endforeach
                     </div>
                 </div>
                 <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.5s">

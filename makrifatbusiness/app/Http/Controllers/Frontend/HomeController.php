@@ -16,6 +16,7 @@ use App\Models\Pelayanan;
 use App\Models\DataYayasan;
 use App\Models\Tim;
 use App\Models\Galeri;
+use App\Models\Keunggulan;
 
 class HomeController extends Controller
 {
@@ -39,8 +40,9 @@ class HomeController extends Controller
                 ->paginate(3);
         $galeri = Galeri::orderBy('id','desc')
                 ->paginate(6);
+        $keunggulan = Keunggulan::All();
 
         return view('frontend.home',compact('banner','artikel','tk','pelayanan',
-        'data_yayasan1','data_yayasan2','data_yayasan3','data_yayasan4','tim','galeri'));
+        'data_yayasan1','data_yayasan2','data_yayasan3','data_yayasan4','tim','galeri','keunggulan'));
     }
 }
