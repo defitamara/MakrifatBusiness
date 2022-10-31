@@ -103,6 +103,21 @@
 
                     <div class="form-group row">
                       <label
+                        for="persentase_1"
+                        class="col-sm-3"
+                        >Persentase Kompetensi 1</label>
+                      <div class="col-sm-13">
+                        <input
+                          type="text"
+                          class="form-control"
+                          id="persentase_1" name="persentase_1"
+                          placeholder="Masukkan jumlah yang akan tampil kecil"
+                          value="{{ isset($data_keunggulan) ? $data_keunggulan->persentase_1 : '' }}"/>
+                      </div>
+                    </div>
+
+                    <div class="form-group row">
+                      <label
                         for="kompetensi_2"
                         class="col-sm-3"
                         >Kompetensi 2</label>
@@ -115,6 +130,20 @@
                           value="{{ isset($data_keunggulan) ? $data_keunggulan->kompetensi_2 : '' }}"/>
                       </div>
                     </div>
+
+                    <div class="form-group row">
+                      <label
+                        for="persentase_2"
+                        class="col-sm-3"
+                        >Persentase Kompetensi 2</label>
+                      <div class="col-sm-13">
+                        <input
+                          type="text"
+                          class="form-control"
+                          id="persentase_2" name="persentase_2"
+                          placeholder="Masukkan jumlah yang akan tampil kecil"
+                          value="{{ isset($data_keunggulan) ? $data_keunggulan->persentase_2 : '' }}"/>
+                      </div>
 
                     <div class="form-group row">
                       <label
@@ -133,39 +162,9 @@
 
                     <div class="form-group row">
                       <label
-                        for="persentase_1"
-                        class="col-sm-3"
-                        >Persentase 1</label>
-                      <div class="col-sm-13">
-                        <input
-                          type="text"
-                          class="form-control"
-                          id="persentase_1" name="persentase_1"
-                          placeholder="Masukkan jumlah yang akan tampil kecil"
-                          value="{{ isset($data_keunggulan) ? $data_keunggulan->persentase_1 : '' }}"/>
-                      </div>
-                    </div>
-
-                    <div class="form-group row">
-                      <label
-                        for="persentase_2"
-                        class="col-sm-3"
-                        >Persentase 2</label>
-                      <div class="col-sm-13">
-                        <input
-                          type="text"
-                          class="form-control"
-                          id="persentase_2" name="persentase_2"
-                          placeholder="Masukkan jumlah yang akan tampil kecil"
-                          value="{{ isset($data_keunggulan) ? $data_keunggulan->persentase_2 : '' }}"/>
-                      </div>
-                    </div>
-
-                    <div class="form-group row">
-                      <label
                         for="persentase_3"
                         class="col-sm-3"
-                        >Persentase 1</label>
+                        >Persentase Kompetensi 3</label>
                       <div class="col-sm-13">
                         <input
                           type="text"
@@ -182,8 +181,8 @@
                         Gambar</label>
                       <div class="col-md-13">
                         <div class="custom-file">
-                          <input type="hidden" name="nama_gambar" value="{{ isset($keunggulan) ? $keunggulan->gambar : '' }}">
-                          <td><img src="/data/data_keunggulan/{{ isset($keunggulan) ? $keunggulan->gambar : '' }}" width="200"></td>
+                          <input type="hidden" name="nama_gambar" value="{{ isset($data_keunggulan) ? $data_keunggulan->gambar : '' }}">
+                          <td><img src="/data/data_keunggulan/{{ isset($data_keunggulan) ? $data_keunggulan->gambar : '' }}" width="200"></td>
                           <input
                             type="file"
                             id_keunggulan="gambar" name="gambar"
